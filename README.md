@@ -21,4 +21,4 @@ This project is a 2D isometric action adventure game. The design philosophy for 
 <a href="Documentation/CST-452 Traceability Matrix.xls">CST-452 Test Case Document</a>
 
 ### Release Notes:
-- 2/13/2023 V.0.3.1 Release - <a href="Documentation/Milestone 1 - Release Notes 0.3.1.docx">CST-452 Test Case Document</a>
+- 2/13/2023 V.0.3.1 Release - <a href="Documentation/Milestone 1 - Release Notes 0.3.1.pdf">CST-452 Test Case Document</a>
