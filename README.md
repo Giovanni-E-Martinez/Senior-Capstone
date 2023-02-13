@@ -9,7 +9,16 @@ This project is a 2D isometric action adventure game. The design philosophy for 
 ### Requirements Document:
 <a href="Documentation/CST-451 Project Requirements.pdf">CST-451 Project Requirements</a>
 ### User Stories:
-<a href="Documentation/CST-451 User Stories.xls">CST-451 User Stories</a>
+<a href="Documentation/CST-452 User Stories.xls">CST-451 User Stories</a>
 
 ### Design Document:
 <a href="Documentation/CST-451 Project Design.pdf">CST-451 Project Design</a>
+
+### Test Cases:
+<a href="Documentation/CST-452 Test Cases.xls">CST-452 Test Case Document</a>
+
+### Traceability Matrix:
+<a href="Documentation/CST-452 Traceability Matrix.xls">CST-452 Test Case Document</a>
+
+### Release Notes:
+- 2/13/2023 V.0.3.1 Release - <a href="Documentation/Milestone 1 - Release Notes 0.3.1.docx">CST-452 Test Case Document</a>
