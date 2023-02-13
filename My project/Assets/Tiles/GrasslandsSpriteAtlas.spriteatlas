@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GrasslandsSpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -384098542, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: 1972382168, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: -942186603, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: 585904946, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: -787556664, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: 1542937193, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: -1498465499, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: 2062135659, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: -964546440, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: -2057891393, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: 1748344226, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: -695872066, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  - {fileID: 1880521574, guid: 0bfe921ee562df74f9f17d9486729ae9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - grass-tileset_9
+  - grass-tileset_8
+  - grass-tileset_1
+  - grass-tileset_0
+  - grass-tileset_3
+  - grass-tileset_2
+  - grass-tileset_5
+  - grass-tileset_4
+  - grass-tileset_7
+  - grass-tileset_6
+  - grass-tileset_10
+  - grass-tileset_11
+  - grass-tileset_12
+  m_RenderDataMap: {}
+  m_Tag: GrasslandsSpriteAtlas
+  m_IsVariant: 0
