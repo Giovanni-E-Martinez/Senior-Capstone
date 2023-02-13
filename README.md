@@ -5,6 +5,8 @@ This project is a 2D orthographic action adventure game. The design philosophy f
 
 The current state of the game allows for the random generation of dungeon maps, with player movement and combat input. The development team is still hard at work on implementing the rest of the features. We hope you will root for and support the team as we embark on this journey of actively biting off more than we can chew even though we know it's detrimenatal to our mental and physical health and sanity.
 
+<hr/>
+
 ### Project Proposal:
 <a href="Documentation/CST-451-RS-ProjectProposal.pdf">CST-451-RS-ProjectProposal</a>
 
