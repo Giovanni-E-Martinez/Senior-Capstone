@@ -26,5 +26,7 @@ The current state of the game allows for the random generation of dungeon maps, 
 ### Traceability Matrix:
 <a href="Documentation/CST-452 Traceability Matrix.xls">CST-452 Test Case Document</a>
 
+<hr/>
+
 ### Release Notes:
 - 2/13/2023 V.0.3.1 Release - <a href="Documentation/Milestone 1 - Release Notes 0.3.1.pdf">CST-452 Test Case Document</a>
