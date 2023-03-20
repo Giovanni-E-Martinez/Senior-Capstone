@@ -18,7 +18,7 @@ public class DungeonGenerator : MonoBehaviour
     private int deviation = 1;
     [SerializeField]
     private TilemapPainter tilemapPainter;
-    private List<HashSet<Vector2Int>> enemyRooms = new List<HashSet<Vector2Int>>();
+    private List<HashSet<Vector2Int>> questRooms = new List<HashSet<Vector2Int>>();
     private int routeCount = 0;
 
     // Start is called before the first frame update
@@ -128,7 +128,7 @@ public class DungeonGenerator : MonoBehaviour
                         // Add room center to list.
                         roomCenters.Add(currentCenter);
                         // Store room in list of enemyRooms for use when generating enemies.
-                        enemyRooms.Add(currentRoom);
+                        questRooms.Add(currentRoom);
                     }
                     else
                     {
@@ -173,7 +173,7 @@ public class DungeonGenerator : MonoBehaviour
                         roomCenters.Add(currentCenter);
 
                         // Store room in list of enemyRooms for use when generating enemies.
-                        enemyRooms.Add(currentRoom);
+                        questRooms.Add(currentRoom);
                     }
                     else
                     {
@@ -218,7 +218,7 @@ public class DungeonGenerator : MonoBehaviour
                         roomCenters.Add(currentCenter);
 
                         // Store room in list of enemyRooms for use when generating enemies.
-                        enemyRooms.Add(currentRoom);
+                        questRooms.Add(currentRoom);
                     }
                     else
                     {
@@ -263,7 +263,7 @@ public class DungeonGenerator : MonoBehaviour
                         roomCenters.Add(currentCenter);
 
                         // Store room in list of enemyRooms for use when generating enemies.
-                        enemyRooms.Add(currentRoom);
+                        questRooms.Add(currentRoom);
                     }
                     else
                     {
@@ -419,10 +419,10 @@ public class DungeonGenerator : MonoBehaviour
     /// Unimplemented method to create possible enemy spawn rooms.
     /// </summary>
     /// <returns>Returns possible enemy spawn room locations.</returns>
-    private HashSet<Vector2Int> possibleEnemyRooms()
+    private HashSet<Vector2Int> possibleQuestRooms()
     {
         HashSet<Vector2Int> pER = new HashSet<Vector2Int>();
-        foreach (var room in enemyRooms)
+        foreach (var room in questRooms)
             pER.UnionWith(room);
         return pER;
     }
