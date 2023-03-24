@@ -28,5 +28,6 @@ The current state of the game allows for the random generation of dungeon maps, 
 
 <hr/>
 
-### Release Notes:
+### Release Notes & Updates:
 - 2/13/2023 V.0.3.1 Release - <a href="Documentation/Milestone 1 - Release Notes 0.3.1.pdf">CST-452 Test Case Document</a>
+- 3/24/2023 V.0.4.1 Update - 
