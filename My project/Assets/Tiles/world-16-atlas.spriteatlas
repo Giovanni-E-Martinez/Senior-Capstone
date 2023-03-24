@@ -43,13 +43,70 @@ SpriteAtlas:
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
-    packables: []
+    packables:
+    - {fileID: 2800000, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 1550980047, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -858606443, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1478579435, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1493513161, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1366078574, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -2096168853, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1695688474, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -647763426, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 89810046, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1659402425, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1648742776, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -398025758, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1770456778, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -188045084, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1425561457, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 38465588, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1614174234, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1297541262, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -646540456, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -648206177, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1149764505, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1934714081, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1817340762, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 1796689022, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 807222288, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: 264980204, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1815197637, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  - {fileID: -1230303098, guid: 25fc0ba12df47f744b93ad2e37bc2743, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - grass-tileset-16_14
+  - grass-tileset-16_15
+  - grass-tileset-16_16
+  - grass-tileset-16_17
+  - grass-tileset-16_10
+  - grass-tileset-16_11
+  - grass-tileset-16_12
+  - grass-tileset-16_13
+  - grass-tileset-16_18
+  - grass-tileset-16_19
+  - grass-tileset-16_25
+  - grass-tileset-16_24
+  - grass-tileset-16_27
+  - grass-tileset-16_26
+  - grass-tileset-16_21
+  - grass-tileset-16_20
+  - grass-tileset-16_23
+  - grass-tileset-16_22
+  - grass-tileset-16_9
+  - grass-tileset-16_8
+  - grass-tileset-16_5
+  - grass-tileset-16_4
+  - grass-tileset-16_7
+  - grass-tileset-16_6
+  - grass-tileset-16_1
+  - grass-tileset-16_0
+  - grass-tileset-16_3
+  - grass-tileset-16_2
   m_RenderDataMap: {}
   m_Tag: world-16-atlas
   m_IsVariant: 0
