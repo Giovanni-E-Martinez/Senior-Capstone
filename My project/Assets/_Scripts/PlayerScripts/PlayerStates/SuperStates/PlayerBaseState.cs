@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerBaseState : PlayerState
 {
     protected Vector2 input;
+    // protected bool dashInput;
 
     public PlayerBaseState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -32,6 +33,12 @@ public class PlayerBaseState : PlayerState
         base.LogicUpdate();
 
         input = new Vector2(player.InputHandler.NormInputX, player.InputHandler.NormInputY);
+        // dashInput = player.InputHandler.DashInput;
+
+        // if(dashInput && player.DashState.CheckIfCanDash())
+        // {
+        //     stateMachine.ChangeState(player.DashState);
+        // }
     }
 
     public override void PhysicsUpdate()

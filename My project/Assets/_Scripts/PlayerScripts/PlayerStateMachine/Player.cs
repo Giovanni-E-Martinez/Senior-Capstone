@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region Properties and Variables
-        #region State Variables
+        #region State Properties
         public PlayerStateMachine StateMachine { get; private set; }
         public PlayerIdleState IdleState { get; private set; }
-        public PlayerMoveState MoveState { get; set; }
+        public PlayerMoveState MoveState { get; private set; }
+        // public PlayerDashState DashState { get; private set; }
         #endregion
 
         #region Object Components
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "Idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "Move");
+        // DashState = new PlayerDashState(this, StateMachine, playerData, "Dash");
     }
 
     private void Start()
@@ -86,7 +88,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Flipping");
         FacingDirection *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
+        // transform.Rotate(0.0f, 180.0f, 0.0f);
         gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
     }
     #endregion
