@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: SH_Base
   m_EditorClassIdentifier: 
   wallCheckDistance: 0.2
+  maxAgroDistance: 6
+  minAgroDistance: 3
+  closeRangeActionDistance: 1
   whatIsWall:
     serializedVersion: 2
     m_Bits: 256
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64

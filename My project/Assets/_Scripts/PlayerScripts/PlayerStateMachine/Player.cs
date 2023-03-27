@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to initialize and create the player object.
+/// </summary>
 public class Player : MonoBehaviour
 {
     #region Properties and Variables
@@ -34,6 +37,9 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Unity Callback Methods
+    /// <summary>
+    /// Method used to initialize Player object on scene activation.
+    /// </summary>
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
@@ -42,6 +48,9 @@ public class Player : MonoBehaviour
         // DashState = new PlayerDashState(this, StateMachine, playerData, "Dash");
     }
 
+    /// <summary>
+    /// Method used to initialize Player object components of scene start.
+    /// </summary>
     private void Start()
     {
         Anim = GetComponent<Animator>();
@@ -51,12 +60,18 @@ public class Player : MonoBehaviour
         StateMachine.Initialize(IdleState);
     }
 
+    /// <summary>
+    /// Method used to update per frame.
+    /// </summary>
     private void Update()
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
     }
 
+    /// <summary>
+    /// Method used to update on fixed intervals.
+    /// </summary>
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
@@ -64,6 +79,11 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Set Methods
+    /// <summary>
+    /// Method used to set the velocity of the player object.
+    /// </summary>
+    /// <param name="velocityX">X axis velocity.</param>
+    /// <param name="velocityY">Y axis velocity.</param>
     public void SetVelocity(float velocityX, float velocityY)
     {
         workSpace.Set(velocityX, velocityY);
@@ -73,9 +93,12 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Check Methods
+    /// <summary>
+    /// Method used to determine if player should flip.
+    /// </summary>
+    /// <param name="xInput">X axis input.</param>
     public void CheckIfShouldFlip(int xInput)
     {
-        Debug.Log(xInput);
         if(xInput != 0 && xInput != FacingDirection)
         {
             Flip();
@@ -84,9 +107,11 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Methods
+    /// <summary>
+    /// Method used to fip the player object.
+    /// </summary>
     private void Flip()
     {
-        Debug.Log("Flipping");
         FacingDirection *= -1;
         // transform.Rotate(0.0f, 180.0f, 0.0f);
         gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
