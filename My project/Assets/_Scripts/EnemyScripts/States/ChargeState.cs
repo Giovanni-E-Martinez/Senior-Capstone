@@ -51,6 +51,8 @@ public class ChargeState : EnemyState
 
         isChargeTimeOver = false;
         entity.FindPlayer();
+        //TODO: test out using setvelocity over navmesh
+        // entity.SetVelocity(stateData.chargeSpeed);
     }
 
     /// <summary>

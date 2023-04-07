@@ -28,6 +28,7 @@ public class Entity : MonoBehaviour
     // Additional entity physics variables.
     private Vector2 velocityWorkspace;
     private Collider2D lastPlayerLocation;
+    // private Transform target;
     private int[] directions = {-1,1};
 
     // NavMesh agent ai variable.
@@ -136,7 +137,6 @@ public class Entity : MonoBehaviour
             if((aliveGO.transform.position.x - lastPlayerLocation.transform.position.x) * facingDirection > 0)
             {
                 // Flip the entity to face the player
-                Debug.Log(aliveGO.transform.position.x - lastPlayerLocation.transform.position.x * facingDirection);
                 Flip();
             }
             // Navigate to the last known player location
@@ -147,6 +147,17 @@ public class Entity : MonoBehaviour
             // Reset navigation to continue idling
             agent.ResetPath();
         }
+
+        //TODO: test out using setvelocity over navmesh
+        // if(CheckPlayerInMaxAgroRange())
+        // {
+        //     target = GameObject.FindGameObjectWithTag("Player").transform;
+        //     if((aliveGO.transform.position.x - target.transform.position.x) * facingDirection > 0)
+        //     {
+        //         // Flip the entity to face the player
+        //         Flip();
+        //     }
+        // }
     }
 
     /// <summary>
