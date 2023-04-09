@@ -31,9 +31,6 @@ public class Entity : MonoBehaviour
     // private Transform target;
     private int[] directions = {-1,1};
 
-    // NavMesh agent ai variable.
-    public NavMeshAgent agent;
-
     /// <summary>
     /// Method that initializes the entity on scene entry.
     /// </summary>
@@ -46,9 +43,6 @@ public class Entity : MonoBehaviour
         aliveGO = transform.Find("Alive").gameObject;
         rb = aliveGO.GetComponent<Rigidbody2D>();
         anim = aliveGO.GetComponent<Animator>();
-        agent = aliveGO.GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
         atsm = aliveGO.GetComponent<AnimationToStateMachine>();
         
         stateMachine = new EnemyStateMachine();
@@ -126,7 +120,7 @@ public class Entity : MonoBehaviour
     /// <summary>
     /// Method used to locate the player transform, then navigate to the player.
     /// </summary>
-    public virtual void FindPlayer()
+    public virtual void FindPlayer(float speed)
     {
         // Check if player is within aggression range
         if(CheckPlayerInMaxAgroRange())
@@ -139,25 +133,9 @@ public class Entity : MonoBehaviour
                 // Flip the entity to face the player
                 Flip();
             }
-            // Navigate to the last known player location
-            agent.SetDestination(lastPlayerLocation.transform.position);
+            // Navigate to the last known player location            
+            aliveGO.transform.position = Vector2.MoveTowards(aliveGO.transform.position, lastPlayerLocation.transform.position, speed * Time.deltaTime);
         }
-        else
-        {
-            // Reset navigation to continue idling
-            agent.ResetPath();
-        }
-
-        //TODO: test out using setvelocity over navmesh
-        // if(CheckPlayerInMaxAgroRange())
-        // {
-        //     target = GameObject.FindGameObjectWithTag("Player").transform;
-        //     if((aliveGO.transform.position.x - target.transform.position.x) * facingDirection > 0)
-        //     {
-        //         // Flip the entity to face the player
-        //         Flip();
-        //     }
-        // }
     }
 
     /// <summary>
@@ -175,9 +153,9 @@ public class Entity : MonoBehaviour
     public virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * facingDirection * entityData.wallCheckDistance));
-        Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
         Gizmos.DrawWireSphere(playerCheck.position, entityData.minAgroDistance);
         Gizmos.DrawWireSphere(playerCheck.position, entityData.maxAgroDistance);
         Gizmos.DrawWireSphere(playerCheck.position, entityData.closeRangeActionDistance);
+        // Gizmos.DrawWireSphere(playerCheck.position + (Vector3)(Vector2.right * entityData.closeRangeActionDistance), 0.2f);
     }
 }

@@ -46,7 +46,6 @@ public class AttackState : EnemyState
         entity.atsm.attackState = this;
         isAnimationFinished = false;
         entity.SetVelocity(0f);
-        entity.agent.ResetPath();
     }
 
     /// <summary>

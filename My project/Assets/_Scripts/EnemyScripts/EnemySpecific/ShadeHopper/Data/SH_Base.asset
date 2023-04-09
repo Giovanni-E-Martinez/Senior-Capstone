@@ -15,7 +15,7 @@ MonoBehaviour:
   wallCheckDistance: 0.2
   maxAgroDistance: 6
   minAgroDistance: 3
-  closeRangeActionDistance: 1
+  closeRangeActionDistance: 0.65
   whatIsWall:
     serializedVersion: 2
     m_Bits: 256

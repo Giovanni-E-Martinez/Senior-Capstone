@@ -57,7 +57,7 @@ public class SH_ChargeState : ChargeState
         base.LogicUpdate();
 
         // Locate player position
-        entity.FindPlayer();
+        entity.FindPlayer(stateData.chargeSpeed);
         // If within range, perform an attack
         if (performCloseRangeAction)
         {
