@@ -62,7 +62,7 @@ public class SH_MeleeAttackState : MeleeAttackState
         if(isAnimationFinished)
         {
             // If player is within aggression range
-            if(isPlayerInMinAgroRange)
+            if(isPlayerInMaxAgroRange)
             {
                 // Detect the player
                 stateMachine.ChangeState(shadeHopper.playerDetectedState);

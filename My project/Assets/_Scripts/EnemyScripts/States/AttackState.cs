@@ -10,7 +10,7 @@ public class AttackState : EnemyState
     protected Transform attackPosition;
 
     protected bool isAnimationFinished;
-    protected bool isPlayerInMinAgroRange;
+    protected bool isPlayerInMaxAgroRange;
 
     /// <summary>
     /// Parameterized constructor used to initialize instances of the class.
@@ -32,7 +32,7 @@ public class AttackState : EnemyState
     {
         base.DoChecks();
 
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
+        isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
     }
 
     /// <summary>
