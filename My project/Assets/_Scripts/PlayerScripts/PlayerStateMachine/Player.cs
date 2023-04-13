@@ -12,18 +12,19 @@ public class Player : MonoBehaviour
         public PlayerStateMachine StateMachine { get; private set; }
         public PlayerIdleState IdleState { get; private set; }
         public PlayerMoveState MoveState { get; private set; }
+        public PlayerAttackState PrimaryAttackState { get; private set; }
+        public PlayerAttackState SecondaryAttackState { get; private set; }
         // public PlayerDashState DashState { get; private set; }
         #endregion
 
         #region Object Components
         public Animator Anim { get; private set; }
         public PlayerInputHandler InputHandler { get; private set; }
-        public Rigidbody2D RB { get; private set; }
+        public Core Core { get; private set; }
         #endregion
 
         #region Public Variables
-        public Vector2 CurrentVelocity { get; private set; }
-        public int FacingDirection { get; private set; }
+        // Currently empty.
         #endregion
 
         #region Scriptable Objects
@@ -42,9 +43,12 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        Core = GetComponentInChildren<Core>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "Idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "Move");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack");
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack");
         // DashState = new PlayerDashState(this, StateMachine, playerData, "Dash");
     }
 
@@ -55,8 +59,6 @@ public class Player : MonoBehaviour
     {
         Anim = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
-        RB = GetComponent<Rigidbody2D>();
-        FacingDirection = 1;
         StateMachine.Initialize(IdleState);
     }
 
@@ -65,7 +67,7 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        CurrentVelocity = RB.velocity;
+        Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
     }
 
@@ -75,46 +77,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
-    }
-    #endregion
-
-    #region Set Methods
-    /// <summary>
-    /// Method used to set the velocity of the player object.
-    /// </summary>
-    /// <param name="velocityX">X axis velocity.</param>
-    /// <param name="velocityY">Y axis velocity.</param>
-    public void SetVelocity(float velocityX, float velocityY)
-    {
-        workSpace.Set(velocityX, velocityY);
-        RB.velocity = workSpace;
-        CurrentVelocity = workSpace;
-    }
-    #endregion
-
-    #region Check Methods
-    /// <summary>
-    /// Method used to determine if player should flip.
-    /// </summary>
-    /// <param name="xInput">X axis input.</param>
-    public void CheckIfShouldFlip(int xInput)
-    {
-        if(xInput != 0 && xInput != FacingDirection)
-        {
-            Flip();
-        }
-    }
-    #endregion
-
-    #region Other Methods
-    /// <summary>
-    /// Method used to fip the player object.
-    /// </summary>
-    private void Flip()
-    {
-        FacingDirection *= -1;
-        // transform.Rotate(0.0f, 180.0f, 0.0f);
-        gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX;
     }
     #endregion
 }

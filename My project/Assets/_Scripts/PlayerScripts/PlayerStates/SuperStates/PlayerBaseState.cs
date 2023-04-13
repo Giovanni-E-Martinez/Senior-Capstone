@@ -55,6 +55,16 @@ public class PlayerBaseState : PlayerState
         base.LogicUpdate();
 
         input = new Vector2(player.InputHandler.NormInputX, player.InputHandler.NormInputY);
+
+        if(player.InputHandler.AttackInputs[(int)CombatInputs.primary])
+        {
+            stateMachine.ChangeState(player.PrimaryAttackState);
+        }
+        else if(player.InputHandler.AttackInputs[(int)CombatInputs.secondary])
+        {
+            stateMachine.ChangeState(player.SecondaryAttackState);
+        }
+
         // dashInput = player.InputHandler.DashInput;
 
         // if(dashInput && player.DashState.CheckIfCanDash())

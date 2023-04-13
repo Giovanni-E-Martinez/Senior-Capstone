@@ -34,7 +34,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        player.SetVelocity(0, 0);
+        core.Movement.SetVelocity(0, Vector2.zero);
     }
 
     /// <summary>

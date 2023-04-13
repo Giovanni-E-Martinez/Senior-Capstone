@@ -15,9 +15,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Attacks",
+                    "name": "PrimaryAttack",
                     "type": "Button",
                     "id": "4c13c257-fbea-41b0-a946-9d74104700ee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondaryAttack",
+                    "type": "Button",
+                    "id": "bafc136c-2219-4ec0-a72b-74654e8253e6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -116,18 +125,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Attacks",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "397e2003-07b7-4046-8e34-d47a42d9b6be",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Attacks",
+                    "action": "PrimaryAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -150,6 +148,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "397e2003-07b7-4046-8e34-d47a42d9b6be",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "SecondaryAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

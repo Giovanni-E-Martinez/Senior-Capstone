@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,8 +51,9 @@ public class PlayerMoveState : PlayerBaseState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.CheckIfShouldFlip((int)input.x);
-        player.SetVelocity(playerData.movementVelocity * input.x, playerData.movementVelocity * input.y);
+
+        core.Movement.CheckIfShouldFlip((int)input.x);
+        core.Movement.SetVelocity(playerData.movementVelocity, input);
 
         if(input.x == 0 && input.y == 0)
         {
