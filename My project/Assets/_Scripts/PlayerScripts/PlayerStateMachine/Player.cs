@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
         #region Local Variables
         private Vector2 workSpace;
+        private Weapon primaryWeapon;
+        private Weapon secondaryWeapon;
         #endregion
     #endregion
 
@@ -44,11 +46,13 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Core = GetComponentInChildren<Core>();
+        primaryWeapon = transform.Find("PrimaryWeapon").GetComponent<Weapon>();
+        secondaryWeapon = transform.Find("SecondaryWeapon").GetComponent<Weapon>();
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "Idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "Move");
-        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack");
-        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack");
+        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack", primaryWeapon);
+        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack", secondaryWeapon);
         // DashState = new PlayerDashState(this, StateMachine, playerData, "Dash");
     }
 
