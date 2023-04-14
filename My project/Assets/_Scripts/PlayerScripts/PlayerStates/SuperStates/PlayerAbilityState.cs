@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerAbilityState : PlayerState
 {
     protected bool isAbilityDone;
-    protected Vector2 input;
+    protected Vector2 moveInput;
+    protected Vector2 lookInput;
 
     public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -32,7 +33,8 @@ public class PlayerAbilityState : PlayerState
     {
         base.LogicUpdate();
 
-        input = new Vector2(player.InputHandler.NormInputX, player.InputHandler.NormInputY);
+        moveInput = new Vector2(player.InputHandler.NormInputX, player.InputHandler.NormInputY);
+        lookInput = player.InputHandler.NormLookInput;
     }
 
     public override void PhysicsUpdate()

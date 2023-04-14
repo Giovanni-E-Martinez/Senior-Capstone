@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 432fac33022d57c48b4bc51d12306c02, type: 3}
-  m_Name: Rifle_1_Data
+  m_Name: Pistol_1_Data
   m_EditorClassIdentifier: 
-  damage: 10
-  attackDelay: 1
-  weaponSprite: {fileID: -214895110, guid: a8b54aeb782e57d4ba6f6be01c6900f0, type: 3}
+  damage: 15
+  attackDelay: 2
+  weaponSprite: {fileID: -1509835952, guid: a8b54aeb782e57d4ba6f6be01c6900f0, type: 3}
   weaponAttackAnimation: {fileID: 0}
-  projectileOrigin: {x: 1, y: 0, z: 0}
+  projectileOrigin: {x: 0.6, y: 0, z: 0}

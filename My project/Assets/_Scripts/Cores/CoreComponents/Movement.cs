@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Core subclass responsible for handling the general movement related methods of enemies and player objects.
+/// CoreComponent subclass responsible for handling the general movement related methods of enemies and player objects.
 /// </summary>
 public class Movement : CoreComponent
 {

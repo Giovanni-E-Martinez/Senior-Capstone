@@ -14,6 +14,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 RawLookInput { get; private set; }
+    public Vector2 NormLookInput { get; private set; }
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
     public bool[] AttackInputs { get; private set; }
@@ -67,6 +68,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnAimInput(InputAction.CallbackContext context)
     {
         RawLookInput = context.ReadValue<Vector2>();
+        NormLookInput = new Vector2(Mathf.RoundToInt(RawLookInput.x), Mathf.RoundToInt(RawLookInput.y));
     }
 
     // public void OnDashInput(InputAction.CallbackContext context)

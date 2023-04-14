@@ -11,6 +11,7 @@ public class WeaponDataSO : ScriptableObject
     public float damage = 10f;
     public float attackDelay = 1f;
     public Sprite weaponSprite;
-    public Animation weaponAttackSprite;
+    public Animation weaponAttackAnimation;
+    public Vector3 projectileOrigin;
     //TODO: Create projectile data class to incorporate projectile component
 }

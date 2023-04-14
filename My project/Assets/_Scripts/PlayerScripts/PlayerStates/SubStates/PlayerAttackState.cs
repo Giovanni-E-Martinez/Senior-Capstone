@@ -29,6 +29,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Exit();
         
+        weapon.Exit();
         player.Anim.SetBool("MoveAttack", false);
         player.Anim.SetBool("IdleAttack", false);
 
@@ -39,24 +40,25 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.LogicUpdate();
 
-        core.Movement.CheckIfShouldFlip((int)input.x);
-        core.Movement.SetVelocity(playerData.movementVelocity, input);
+        core.Movement.CheckIfShouldFlip((int)moveInput.x);
+        core.Movement.SetVelocity(playerData.movementVelocity, moveInput);
+        weapon.PointerPosition = GetPointerInput();
 
-        if((input.x != 0 || input.y != 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
+        if((moveInput.x != 0 || moveInput.y != 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
             player.Anim.SetBool("IdleAttack", false);
             player.Anim.SetBool("MoveAttack", true);
         }
-        else if ((input.x == 0 && input.y == 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
+        else if ((moveInput.x == 0 && moveInput.y == 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
             player.Anim.SetBool("MoveAttack", false);
             player.Anim.SetBool("IdleAttack", true);
         }
-        else if((input.x != 0 || input.y != 0) && (!player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
+        else if((moveInput.x != 0 || moveInput.y != 0) && (!player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
             stateMachine.ChangeState(player.MoveState);
         }
-        else if ((input.x == 0 && input.y == 0) && (!player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
+        else if ((moveInput.x == 0 && moveInput.y == 0) && (!player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
             stateMachine.ChangeState(player.IdleState);
         }
@@ -65,5 +67,12 @@ public class PlayerAttackState : PlayerAbilityState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    private Vector2 GetPointerInput()
+    {
+        Vector3 pointerPos = lookInput;
+        pointerPos.z = Camera.main.nearClipPlane;
+        return Camera.main.ScreenToWorldPoint(pointerPos);
     }
 }
