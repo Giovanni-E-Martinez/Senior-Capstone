@@ -71,6 +71,11 @@ public class PlayerInputHandler : MonoBehaviour
         NormLookInput = new Vector2(Mathf.RoundToInt(RawLookInput.x), Mathf.RoundToInt(RawLookInput.y));
     }
 
+    public bool ControlScheme()
+    {
+        return playerInput.currentControlScheme.Equals("Gamepad");
+    }
+
     // public void OnDashInput(InputAction.CallbackContext context)
     // {
     //     if(context.started)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAbilityState : PlayerState
 {
     protected bool isAbilityDone;
+    protected bool isController;
     protected Vector2 moveInput;
     protected Vector2 lookInput;
 
@@ -33,8 +34,9 @@ public class PlayerAbilityState : PlayerState
     {
         base.LogicUpdate();
 
+        isController = player.InputHandler.ControlScheme();
         moveInput = new Vector2(player.InputHandler.NormInputX, player.InputHandler.NormInputY);
-        lookInput = player.InputHandler.NormLookInput;
+        lookInput = player.InputHandler.RawLookInput;
     }
 
     public override void PhysicsUpdate()

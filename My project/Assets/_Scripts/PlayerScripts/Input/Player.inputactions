@@ -208,6 +208,17 @@
                 },
                 {
                     "name": "",
+                    "id": "33200597-2318-4fbc-944c-cde93659db7a",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "397e2003-07b7-4046-8e34-d47a42d9b6be",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",

@@ -13,5 +13,5 @@ public class WeaponDataSO : ScriptableObject
     public Sprite weaponSprite;
     public Animation weaponAttackAnimation;
     public Vector3 projectileOrigin;
-    //TODO: Create projectile data class to incorporate projectile component
+    //TODO: Experiment with projectile data class to incorporate projectile component
 }

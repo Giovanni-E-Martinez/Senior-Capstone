@@ -42,7 +42,7 @@ public class PlayerAttackState : PlayerAbilityState
 
         core.Movement.CheckIfShouldFlip((int)moveInput.x);
         core.Movement.SetVelocity(playerData.movementVelocity, moveInput);
-        weapon.PointerPosition = GetPointerInput();
+        weapon.pointerAngle = GetPointerInput();
 
         if((moveInput.x != 0 || moveInput.y != 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
@@ -69,10 +69,24 @@ public class PlayerAttackState : PlayerAbilityState
         base.PhysicsUpdate();
     }
 
-    private Vector2 GetPointerInput()
+    private float GetPointerInput()
     {
         Vector3 pointerPos = lookInput;
         pointerPos.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(pointerPos);
+        float degrees = 0f;
+        Vector2 distance = new Vector2();
+
+        if(!isController)
+        {
+            pointerPos = Camera.main.ScreenToWorldPoint(pointerPos);
+            distance = (pointerPos - GameObject.Find("PrimaryWeapon").transform.position).normalized;
+            degrees = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
+        }
+        else
+        {
+            degrees = Mathf.Atan2(pointerPos.y, pointerPos.x) * Mathf.Rad2Deg;
+        }
+
+        return degrees;
     }
 }
