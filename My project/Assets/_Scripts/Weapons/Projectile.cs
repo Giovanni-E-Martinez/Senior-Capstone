@@ -4,35 +4,28 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float speed;
-    private float range;
+    public float damage;
+    public float speed;
+    public float range;
+
     private Rigidbody2D rb;
 
     [SerializeField]
-    private LayerMask whatIsPlayer;
+    private LayerMask whatIsEnemy;
     [SerializeField]
     private LayerMask whatIsWall;
 
     // Start is called before the first frame update
     private void Start()
     {
-        //TODO: Figure out how to initialize and fire projectile
+        rb = GetComponent<Rigidbody2D>();
+        FireProjectile(damage, speed, range);
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
+    //TODO: Figure out collision and damage using either fixed update or onTriggerEnter2d
 
-    }
-
-    private void FixedUpdate()
+    public void FireProjectile(float damage, float speed, float range)
     {
-        
-    }
-
-    public void FireProjectile(float speed, float range, float damage)
-    {
-        this.speed = speed;
-        this.range = range;
+        rb.velocity = transform.right * speed;
     }
 }

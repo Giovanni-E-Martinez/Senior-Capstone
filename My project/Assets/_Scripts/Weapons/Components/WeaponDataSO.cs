@@ -8,10 +8,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="newWeaponData", menuName ="Data/Weapon Data")]
 public class WeaponDataSO : ScriptableObject
 {
-    public float damage = 10f;
-    public float attackDelay = 1f;
-    public Sprite weaponSprite;
     public Animation weaponAttackAnimation;
+    public float attackDelay = 1f;
+    public float damage = 10f;
+    public float projectileSpeed = 10f;
+    public float projectileRange = 10f;
+    public GameObject projectile;
+    public Sprite weaponSprite;
     public Vector3 projectileOrigin;
-    //TODO: Experiment with projectile data class to incorporate projectile component
 }

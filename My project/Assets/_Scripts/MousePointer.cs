@@ -10,12 +10,6 @@ public class MousePointer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.SetCursor(crosshair, Vector2.zero, CursorMode.Auto);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        Cursor.SetCursor(crosshair, new Vector2(crosshair.width/2, crosshair.height/2), CursorMode.Auto);
     }
 }

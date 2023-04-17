@@ -79,7 +79,7 @@ public class PlayerAttackState : PlayerAbilityState
         if(!isController)
         {
             pointerPos = Camera.main.ScreenToWorldPoint(pointerPos);
-            distance = (pointerPos - GameObject.Find("PrimaryWeapon").transform.position).normalized;
+            distance = (pointerPos - weapon.transform.position).normalized;
             degrees = Mathf.Atan2(distance.y, distance.x) * Mathf.Rad2Deg;
         }
         else
