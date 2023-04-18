@@ -40,16 +40,16 @@ public class Entity : MonoBehaviour
         facingDirection = directions[Random.Range(0,2)];
 
         // Initialize and define each component.
-        aliveGO = transform.Find("Alive").gameObject;
-        rb = aliveGO.GetComponent<Rigidbody2D>();
-        anim = aliveGO.GetComponent<Animator>();
-        atsm = aliveGO.GetComponent<AnimationToStateMachine>();
+        // aliveGO = transform.Find("Alive").gameObject;
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        atsm = GetComponent<AnimationToStateMachine>();
         
         stateMachine = new EnemyStateMachine();
 
         if(facingDirection == -1)
         {
-            aliveGO.transform.Rotate(0f, 180f, 0);
+            transform.Rotate(0f, 180f, 0);
         }
     }
 
@@ -114,7 +114,7 @@ public class Entity : MonoBehaviour
     /// <returns>Returns true or false.</returns>
     public virtual bool CheckWall()
     {
-       return Physics2D.Raycast(wallCheck.position, aliveGO.transform.right, entityData.wallCheckDistance, entityData.whatIsWall);
+       return Physics2D.Raycast(wallCheck.position, transform.right, entityData.wallCheckDistance, entityData.whatIsWall);
     }
 
     /// <summary>
@@ -128,13 +128,13 @@ public class Entity : MonoBehaviour
             // Temporarily store the player collider location
             lastPlayerLocation = Physics2D.OverlapCircle(playerCheck.position, entityData.maxAgroDistance, entityData.whatIsPlayer);
             // Determine whether the player is to the right or the left
-            if((aliveGO.transform.position.x - lastPlayerLocation.transform.position.x) * facingDirection > 0)
+            if((transform.position.x - lastPlayerLocation.transform.position.x) * facingDirection > 0)
             {
                 // Flip the entity to face the player
                 Flip();
             }
             // Navigate to the last known player location            
-            aliveGO.transform.position = Vector2.MoveTowards(aliveGO.transform.position, lastPlayerLocation.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, lastPlayerLocation.transform.position, speed * Time.deltaTime);
         }
     }
 
@@ -144,7 +144,7 @@ public class Entity : MonoBehaviour
     public virtual void Flip()
     {
         facingDirection *= -1;
-        aliveGO.transform.Rotate(0f, 180f, 0);
+        transform.Rotate(0f, 180f, 0);
     }
 
     /// <summary>

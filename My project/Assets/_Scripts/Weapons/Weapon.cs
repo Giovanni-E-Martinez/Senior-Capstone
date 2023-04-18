@@ -19,6 +19,12 @@ public class Weapon : MonoBehaviour
     {
         // print($"{transform.name} enter");
         gameObject.SetActive(true);
+
+        weaponData.projectile.GetComponent<Projectile>().damage = weaponData.damage;
+        weaponData.projectile.GetComponent<Projectile>().speed = weaponData.projectileSpeed;
+        weaponData.projectile.GetComponent<Projectile>().range = weaponData.projectileRange;
+        weaponData.projectile.GetComponent<Projectile>().radius = weaponData.range;
+        
         canAttack = true;
     }
 
@@ -38,11 +44,6 @@ public class Weapon : MonoBehaviour
         weaponRenderer = baseGameObject.GetComponent<SpriteRenderer>();
         weaponRenderer.sprite = weaponData.weaponSprite;
         characterRenderer = baseGameObject.GetComponentInParent<SpriteRenderer>();
-
-        weaponData.projectile.GetComponent<Projectile>().damage = weaponData.damage;
-        weaponData.projectile.GetComponent<Projectile>().speed = weaponData.projectileSpeed;
-        weaponData.projectile.GetComponent<Projectile>().range = weaponData.projectileRange;
-        weaponData.projectile.GetComponent<Projectile>().radius = weaponData.range;
 
         canAttack = true;
     }
