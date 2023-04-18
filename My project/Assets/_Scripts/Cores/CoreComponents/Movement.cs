@@ -32,7 +32,7 @@ public class Movement : CoreComponent
     /// <summary>
     /// Called once per frame.
     /// </summary>
-    public void LogicUpdate()
+    public override void LogicUpdate()
     {
         CurrentVelocity = RB.velocity;
     }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Rifle_1_Data
   m_EditorClassIdentifier: 
   weaponAttackAnimation: {fileID: 0}
-  attackDelay: 1
+  attackDelay: 0.2
   damage: 10
   projectileSpeed: 10
   projectileRange: 10
+  range: 0.2
   projectile: {fileID: 3542848103261474067, guid: 8c25f2048b5e8974e8b00b4786f3a9ce, type: 3}
   weaponSprite: {fileID: -214895110, guid: a8b54aeb782e57d4ba6f6be01c6900f0, type: 3}
   projectileOrigin: {x: 1, y: 0, z: 0}

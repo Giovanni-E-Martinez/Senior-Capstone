@@ -10,8 +10,8 @@ public class Weapon : MonoBehaviour
     private Transform projectileOrigin;
     private SpriteRenderer weaponRenderer;
     private SpriteRenderer characterRenderer;
-    private bool canAttack;
     
+    public bool canAttack;
     public float pointerAngle;
     public WeaponDataSO weaponData;
     
@@ -26,7 +26,6 @@ public class Weapon : MonoBehaviour
     {
         // print($"{transform.name} exit");
         gameObject.SetActive(false);
-        canAttack = false;
     }
 
     public void Awake()
@@ -43,6 +42,9 @@ public class Weapon : MonoBehaviour
         weaponData.projectile.GetComponent<Projectile>().damage = weaponData.damage;
         weaponData.projectile.GetComponent<Projectile>().speed = weaponData.projectileSpeed;
         weaponData.projectile.GetComponent<Projectile>().range = weaponData.projectileRange;
+        weaponData.projectile.GetComponent<Projectile>().radius = weaponData.range;
+
+        canAttack = true;
     }
 
     public void Update()

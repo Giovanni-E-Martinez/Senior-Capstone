@@ -8,6 +8,11 @@ public class PlayerAbilityState : PlayerState
     protected bool isController;
     protected Vector2 moveInput;
     protected Vector2 lookInput;
+    protected Movement Movement
+    {
+        get => movement ?? core.GetCoreComponent(ref movement);
+    }
+    private Movement movement;
 
     public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {

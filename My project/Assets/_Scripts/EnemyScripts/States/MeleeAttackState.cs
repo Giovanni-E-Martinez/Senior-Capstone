@@ -80,7 +80,11 @@ public class MeleeAttackState : AttackState
         // For each collider found, send the "Damage" message to each object
         foreach (Collider2D collider in detectedObjects)
         {
-            collider.transform.SendMessage("Damage", attackDetails);
+            IDamageable damageable = collider.GetComponentInChildren<IDamageable>();
+
+			if (damageable != null) {
+				damageable.Damage(stateData.attackDamage);
+			}
         }
     }
 

@@ -40,8 +40,8 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.LogicUpdate();
 
-        core.Movement.CheckIfShouldFlip((int)moveInput.x);
-        core.Movement.SetVelocity(playerData.movementVelocity, moveInput);
+        Movement.CheckIfShouldFlip((int)moveInput.x);
+        Movement.SetVelocity(playerData.movementVelocity, moveInput);
         weapon.pointerAngle = GetPointerInput();
 
         if((moveInput.x != 0 || moveInput.y != 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))

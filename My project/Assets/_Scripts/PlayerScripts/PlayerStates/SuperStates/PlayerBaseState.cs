@@ -8,6 +8,11 @@ using UnityEngine;
 public class PlayerBaseState : PlayerState
 {
     protected Vector2 input;
+    protected Movement Movement
+    {
+        get => movement ?? core.GetCoreComponent(ref movement);
+    }
+    private Movement movement;
     // protected bool dashInput;
 
     /// <summary>

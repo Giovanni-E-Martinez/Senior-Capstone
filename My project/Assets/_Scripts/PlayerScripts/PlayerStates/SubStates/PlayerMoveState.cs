@@ -52,8 +52,8 @@ public class PlayerMoveState : PlayerBaseState
     {
         base.LogicUpdate();
 
-        core.Movement.CheckIfShouldFlip((int)input.x);
-        core.Movement.SetVelocity(playerData.movementVelocity, input);
+        Movement.CheckIfShouldFlip((int)input.x);
+        Movement.SetVelocity(playerData.movementVelocity, input);
 
         if(input.x == 0 && input.y == 0)
         {

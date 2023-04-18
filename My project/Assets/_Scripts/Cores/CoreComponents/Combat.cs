@@ -1,21 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// CoreComponent subclass responsible for handling the general combat related methods of enemies and player objects.
-/// </summary>
-public class Combat : CoreComponent
+
+public class Combat : CoreComponent, IDamageable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    // [SerializeField] private GameObject damageParticles;
 
+    private Stats stats;
+    // private ParticleManager particleManager;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        stats = core.GetCoreComponent<Stats>();
+        // particleManager = core.GetCoreComponent<ParticleManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Damage(float amount)
     {
-
+        Debug.Log(core.transform.parent.name + " Damaged!");
+        stats.Health.Decrease(amount);
+        Debug.Log(stats.Health.CurrentValue);
+        // particleManager.StartParticlesWithRandomRotation(damageParticles);
     }
+
 }

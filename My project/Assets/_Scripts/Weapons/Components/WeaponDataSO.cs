@@ -13,6 +13,7 @@ public class WeaponDataSO : ScriptableObject
     public float damage = 10f;
     public float projectileSpeed = 10f;
     public float projectileRange = 10f;
+    public float range = .2f;
     public GameObject projectile;
     public Sprite weaponSprite;
     public Vector3 projectileOrigin;
