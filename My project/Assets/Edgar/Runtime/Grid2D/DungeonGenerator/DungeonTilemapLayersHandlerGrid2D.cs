@@ -13,27 +13,32 @@ namespace Edgar.Unity
         {
             gameObject.AddComponent<Grid>();
 
-            var floorTilemapObject = CreateTilemapGameObject("Floor", gameObject, 0);
+            var floorTilemapObject = CreateTilemapGameObject("Floor", gameObject, "Default", 0);
+            AddCompositeCollider(floorTilemapObject);
+            floorTilemapObject.GetComponent<CompositeCollider2D>().isTrigger = true;
 
-            var wallsTilemapObject = CreateTilemapGameObject("Walls", gameObject, 1);
+            var wallsTilemapObject = CreateTilemapGameObject("Walls", gameObject, "Wall Layer", 1);
             AddCompositeCollider(wallsTilemapObject);
+            wallsTilemapObject.tag = "Wall";
+            wallsTilemapObject.layer = 8;
 
-            var collideableTilemapObject = CreateTilemapGameObject("Collideable", gameObject, 2);
+            var collideableTilemapObject = CreateTilemapGameObject("Collideable", gameObject, "Default", 2);
             AddCompositeCollider(collideableTilemapObject);
 
-            var other1TilemapObject = CreateTilemapGameObject("Other 1", gameObject, 3);
+            var other1TilemapObject = CreateTilemapGameObject("Other 1", gameObject, "Default", 3);
 
-            var other2TilemapObject = CreateTilemapGameObject("Other 2", gameObject, 4);
+            var other2TilemapObject = CreateTilemapGameObject("Other 2", gameObject, "Default", 4);
 
-            var other3TilemapObject = CreateTilemapGameObject("Other 3", gameObject, 5);
+            var other3TilemapObject = CreateTilemapGameObject("Other 3", gameObject, "Default", 5);
         }
 
-        protected GameObject CreateTilemapGameObject(string name, GameObject parentObject, int sortingOrder)
+        protected GameObject CreateTilemapGameObject(string name, GameObject parentObject, string sortingLayer, int sortingOrder)
         {
             var tilemapObject = new GameObject(name);
             tilemapObject.transform.SetParent(parentObject.transform);
             var tilemap = tilemapObject.AddComponent<Tilemap>();
             var tilemapRenderer = tilemapObject.AddComponent<TilemapRenderer>();
+            tilemapRenderer.sortingLayerName = sortingLayer;
             tilemapRenderer.sortingOrder = sortingOrder;
 
             return tilemapObject;

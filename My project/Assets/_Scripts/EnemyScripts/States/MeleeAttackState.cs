@@ -74,6 +74,8 @@ public class MeleeAttackState : AttackState
     {
         base.TriggerAttack();
 
+        entity.audioSource.Play();
+
         // Find all colliders within attack radius
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatIsPlayer);
 

@@ -7,11 +7,13 @@ public class Weapon : MonoBehaviour
 {
     private Animator anim;
     private GameObject baseGameObject;
+    private AudioSource weaponAudio;
     private Transform projectileOrigin;
     private SpriteRenderer weaponRenderer;
     private SpriteRenderer characterRenderer;
     
     public bool canAttack;
+    public bool attackInput;
     public float pointerAngle;
     public WeaponDataSO weaponData;
     
@@ -24,6 +26,8 @@ public class Weapon : MonoBehaviour
         weaponData.projectile.GetComponent<Projectile>().speed = weaponData.projectileSpeed;
         weaponData.projectile.GetComponent<Projectile>().range = weaponData.projectileRange;
         weaponData.projectile.GetComponent<Projectile>().radius = weaponData.range;
+
+        StopAllCoroutines();
         
         canAttack = true;
     }
@@ -31,13 +35,16 @@ public class Weapon : MonoBehaviour
     public void Exit()
     {
         // print($"{transform.name} exit");
-        gameObject.SetActive(false);
+        
+        StartCoroutine(DelayHolster());
     }
 
     public void Awake()
     {
         gameObject.SetActive(false);
         baseGameObject = transform.Find("Weapon").gameObject;
+        weaponAudio = transform.Find("AudioSource").GetComponent<AudioSource>();
+        weaponAudio.clip = weaponData.weaponSound;
         projectileOrigin = transform.Find("ProjectileOrigin").transform;
         projectileOrigin.position = baseGameObject.transform.position + weaponData.projectileOrigin;
         anim = baseGameObject.GetComponent<Animator>();
@@ -51,7 +58,8 @@ public class Weapon : MonoBehaviour
     public void Update()
     {
         RotateWeapon();
-        Attack();
+        if(attackInput)
+            Attack();
     }
 
     public void FixedUpdate()
@@ -64,6 +72,7 @@ public class Weapon : MonoBehaviour
         if(!canAttack)
             return;
         canAttack = false;
+        weaponAudio.Play();
         Instantiate(weaponData.projectile, projectileOrigin.position, transform.rotation);
         StartCoroutine(DelayAttack());
     }
@@ -89,6 +98,12 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(weaponData.attackDelay);
         canAttack = true;
         Debug.Log("Ready to fire");
+    }
+
+    private IEnumerator DelayHolster()
+    {
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 
     void OnDrawGizmos()

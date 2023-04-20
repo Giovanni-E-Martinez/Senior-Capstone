@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe4d4c2ab770db438653940ba220a24, type: 3}
+  m_Name: Grasslands_Input
+  m_EditorClassIdentifier: 
+  LevelGraph: {fileID: 11400000, guid: a91341a3cba31bb4f8f6a5a05a5606ac, type: 2}
+  UseRandomLevelGraph: 0
+  Stage: 1
+  Stage1LevelGraphs:
+  - {fileID: 11400000, guid: a91341a3cba31bb4f8f6a5a05a5606ac, type: 2}
+  Stage2LevelGraphs: []
+  RoomTemplates:
+    BasicRoomTemplates:
+    - {fileID: 282265378969389177, guid: 110d52376de603d45939fd3358ebeb84, type: 3}
+    - {fileID: 1183808127122706260, guid: a6b5a3b3b58a9934fa9a1f521493b685, type: 3}
+    - {fileID: 811828080667268260, guid: 306e537fabf7a3843874fd28f9c3d181, type: 3}
+    - {fileID: 7025638399013172899, guid: 5cdd03a645906a64595ad36cfef427c6, type: 3}
+    - {fileID: 1900825676858201986, guid: 102160f8568a48b429b2fc073171cc73, type: 3}
+    - {fileID: 3777186338204497480, guid: c9e5001442a375a42b5caf9de05cdcd9, type: 3}
+    BossFoyersRoomTemplates:
+    - {fileID: 282265378969389177, guid: 110d52376de603d45939fd3358ebeb84, type: 3}
+    BossRoomTemplates:
+    - {fileID: 282265378969389177, guid: 110d52376de603d45939fd3358ebeb84, type: 3}
+    CorridorRoomTemplates:
+    - {fileID: 2600227980757826379, guid: 752aa23672758db42a398bcf613527a6, type: 3}
+    - {fileID: 4914596729227297379, guid: 46dead6ca1910544dbe756e8b1b8b5fd, type: 3}
+    - {fileID: 1868678746305390505, guid: ccf91d655ab438542b6947feec1b5d23, type: 3}
+    - {fileID: 6859024078488722269, guid: eb5b5caf2d606d64a9648c16e4e425cb, type: 3}
+    EntranceRoomTemplates:
+    - {fileID: 5395869330657467414, guid: f65f8a726011c5a40bacae300cfdb3cf, type: 3}
+    ExitRoomTemplates:
+    - {fileID: 5395869330657467414, guid: f65f8a726011c5a40bacae300cfdb3cf, type: 3}
+    HubRoomTemplates:
+    - {fileID: 1183808127122706260, guid: a6b5a3b3b58a9934fa9a1f521493b685, type: 3}
+    RewardRoomTemplates:
+    - {fileID: 5395869330657467414, guid: f65f8a726011c5a40bacae300cfdb3cf, type: 3}
+    ShopRoomTemplates:
+    - {fileID: 5395869330657467414, guid: f65f8a726011c5a40bacae300cfdb3cf, type: 3}
+    SecretRoomTemplates:
+    - {fileID: 5395869330657467414, guid: f65f8a726011c5a40bacae300cfdb3cf, type: 3}
+  SecretRoomChance: 0.9
+  SecretRoomDeadEndChance: 0.5

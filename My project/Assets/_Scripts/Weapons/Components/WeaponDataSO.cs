@@ -9,6 +9,7 @@ using UnityEngine;
 public class WeaponDataSO : ScriptableObject
 {
     public Animation weaponAttackAnimation;
+    public AudioClip weaponSound;
     public float attackDelay = 1f;
     public float damage = 10f;
     public float projectileSpeed = 10f;

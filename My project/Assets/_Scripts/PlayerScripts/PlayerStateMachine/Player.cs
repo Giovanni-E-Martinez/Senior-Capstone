@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         #endregion
 
         #region Public Variables
-        // Currently empty.
+        public HealthBar healthBar;
         #endregion
 
         #region Scriptable Objects
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "Move");
         PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack", primaryWeapon);
         SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack", secondaryWeapon);
+        healthBar.SetMaxHealth(Core.GetCoreComponent<Stats>().Health.MaxValue);
         // DashState = new PlayerDashState(this, StateMachine, playerData, "Dash");
     }
 
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+        healthBar.SetHealth(Core.GetCoreComponent<Stats>().Health.CurrentValue);
     }
     #endregion
 }

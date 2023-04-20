@@ -11,6 +11,7 @@ public class Entity : MonoBehaviour
     // Instances of the state machine and entity data.
     public EnemyStateMachine stateMachine;
     public D_Entity entityData;
+    public AudioSource audioSource;
 
     // Instances of the entity game objects and transform information.
     public int facingDirection { get; private set; }

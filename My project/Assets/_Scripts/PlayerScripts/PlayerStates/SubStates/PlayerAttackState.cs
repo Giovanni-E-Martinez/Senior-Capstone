@@ -43,6 +43,7 @@ public class PlayerAttackState : PlayerAbilityState
         Movement.CheckIfShouldFlip((int)moveInput.x);
         Movement.SetVelocity(playerData.movementVelocity, moveInput);
         weapon.pointerAngle = GetPointerInput();
+        weapon.attackInput = true;
 
         if((moveInput.x != 0 || moveInput.y != 0) && (player.InputHandler.AttackInputs[(int)CombatInputs.primary] || player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
@@ -56,10 +57,12 @@ public class PlayerAttackState : PlayerAbilityState
         }
         else if((moveInput.x != 0 || moveInput.y != 0) && (!player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
+            weapon.attackInput = false;
             stateMachine.ChangeState(player.MoveState);
         }
         else if ((moveInput.x == 0 && moveInput.y == 0) && (!player.InputHandler.AttackInputs[(int)CombatInputs.primary] && !player.InputHandler.AttackInputs[(int)CombatInputs.secondary]))
         {
+            weapon.attackInput = false;
             stateMachine.ChangeState(player.IdleState);
         }
     }

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Pistol_1_Data
   m_EditorClassIdentifier: 
   weaponAttackAnimation: {fileID: 0}
-  attackDelay: 0.75
+  weaponSound: {fileID: 8300000, guid: 6dd7024f00606b44eb5884197a66a893, type: 3}
+  attackDelay: 0.5
   damage: 15
   projectileSpeed: 10
   projectileRange: 10
