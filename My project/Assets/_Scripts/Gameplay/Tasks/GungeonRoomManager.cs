@@ -32,7 +32,7 @@ namespace Edgar.Unity.Examples.Gungeon
         /// Enemies that can spawn inside the room.
         /// </summary>
         public GameObject[] Enemies;
-        public List<GameObject> enemies = new List<GameObject>();
+        public List<GameObject> enemyList = new List<GameObject>();
 
         /// <summary>
         /// Whether enemies were spawned.
@@ -98,7 +98,7 @@ namespace Edgar.Unity.Examples.Gungeon
         {
             EnemiesSpawned = true;
 
-            // var enemies = new List<GameObject>();
+            var enemies = new List<GameObject>();
             var totalEnemiesCount = GameManager.Instance.Random.Next(4, 8);
 
             while (enemies.Count < totalEnemiesCount)
@@ -127,6 +127,8 @@ namespace Edgar.Unity.Examples.Gungeon
                 enemy.transform.parent = roomInstance.RoomTemplateInstance.transform;
                 enemies.Add(enemy);
             }
+
+            enemyList = enemies;
         }
 
         private static bool IsPointWithinCollider(Collider2D collider, Vector2 point)
