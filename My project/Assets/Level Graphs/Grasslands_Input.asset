@@ -25,7 +25,6 @@ MonoBehaviour:
     - {fileID: 811828080667268260, guid: 306e537fabf7a3843874fd28f9c3d181, type: 3}
     - {fileID: 7025638399013172899, guid: 5cdd03a645906a64595ad36cfef427c6, type: 3}
     - {fileID: 1900825676858201986, guid: 102160f8568a48b429b2fc073171cc73, type: 3}
-    - {fileID: 3777186338204497480, guid: c9e5001442a375a42b5caf9de05cdcd9, type: 3}
     BossFoyersRoomTemplates:
     - {fileID: 282265378969389177, guid: 110d52376de603d45939fd3358ebeb84, type: 3}
     BossRoomTemplates:

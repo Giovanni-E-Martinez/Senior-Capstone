@@ -18,6 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
     public bool[] AttackInputs { get; private set; }
+    public bool Paused { get; set; }
     // public bool DashInput { get; private set; }
     // public bool DashInputStop { get; private set; }
 
@@ -69,6 +70,12 @@ public class PlayerInputHandler : MonoBehaviour
     {
         RawLookInput = context.ReadValue<Vector2>();
         NormLookInput = new Vector2(Mathf.RoundToInt(RawLookInput.x), Mathf.RoundToInt(RawLookInput.y));
+    }
+
+    public void OnPauseInput(InputAction.CallbackContext context)
+    {
+        Paused = !Paused;
+        Debug.Log("Paused: " + Paused);
     }
 
     public bool ControlScheme()
