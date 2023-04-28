@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to define projectile object properties and methods.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
     public float damage;
@@ -26,6 +29,9 @@ public class Projectile : MonoBehaviour
         FireProjectile(damage, speed, range);
     }
 
+    /// <summary>
+    /// Called on fixed intervals to perform physics calculations and updates.
+    /// </summary>
     private void FixedUpdate()
     {
         Collider2D enemy = Physics2D.OverlapCircle(hitbox.position, radius, whatIsEnemy);
@@ -48,11 +54,20 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Method used to define properties of a fired projectile.
+    /// </summary>
+    /// <param name="damage">Defined amount of damage to be dealt on strike.</param>
+    /// <param name="speed">Defined projectile flight speed.</param>
+    /// <param name="range">Defined projectile total range.</param>
     public void FireProjectile(float damage, float speed, float range)
     {
         rb.velocity = transform.right * speed;
     }
 
+    /// <summary>
+    /// Method used to draw helper visuals in editor when running.
+    /// </summary>
     public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(hitbox.position, radius);

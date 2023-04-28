@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to define Weapon object properties and methods.
+/// </summary>
 public class Weapon : MonoBehaviour
 {
     private Animator anim;
@@ -16,7 +19,10 @@ public class Weapon : MonoBehaviour
     public bool attackInput;
     public float pointerAngle;
     public WeaponDataSO weaponData;
-    
+
+    /// <summary>
+    /// Called on initialization to initialize properties.
+    /// </summary>    
     public void Enter() 
     {
         // print($"{transform.name} enter");
@@ -32,6 +38,9 @@ public class Weapon : MonoBehaviour
         canAttack = true;
     }
 
+    /// <summary>
+    /// Called on deactivation.
+    /// </summary>
     public void Exit()
     {
         // print($"{transform.name} exit");
@@ -39,6 +48,9 @@ public class Weapon : MonoBehaviour
         StartCoroutine(DelayHolster());
     }
 
+    /// <summary>
+    /// Called on creation within environment in order to define and assign components.
+    /// </summary>
     public void Awake()
     {
         gameObject.SetActive(false);
@@ -55,6 +67,9 @@ public class Weapon : MonoBehaviour
         canAttack = true;
     }
 
+    /// <summary>
+    /// Called before each frame to perform logic updates.
+    /// </summary>
     public void Update()
     {
         RotateWeapon();
@@ -62,11 +77,17 @@ public class Weapon : MonoBehaviour
             Attack();
     }
 
+    /// <summary>
+    /// Called on fixed intervals to perform physics updates.
+    /// </summary>
     public void FixedUpdate()
     {
         
     }
 
+    /// <summary>
+    /// Method used to define and perform an attack action.
+    /// </summary>
     public void Attack()
     {
         if(!canAttack)
@@ -77,6 +98,9 @@ public class Weapon : MonoBehaviour
         StartCoroutine(DelayAttack());
     }
 
+    /// <summary>
+    /// Method used to locate cursor position then rotate the weapon towards the located cursor.
+    /// </summary>
     public void RotateWeapon()
     {
         transform.rotation = Quaternion.Euler(0f, 0f, pointerAngle);
@@ -100,12 +124,19 @@ public class Weapon : MonoBehaviour
         Debug.Log("Ready to fire");
     }
 
+    /// <summary>
+    /// Coroutine used to delay weapon holstering.
+    /// </summary>
+    /// <returns>Returns coroutine.</returns>
     private IEnumerator DelayHolster()
     {
         yield return new WaitForSeconds(1f);
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Method used to draw helper visuals within the editor.
+    /// </summary>
     void OnDrawGizmos()
     {
         // Gizmos.DrawWireSphere(projectileOrigin.transform.position, .2f);

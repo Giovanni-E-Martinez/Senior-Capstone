@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Class used to define and control dialogue, not currently in use.
+/// </summary>
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;

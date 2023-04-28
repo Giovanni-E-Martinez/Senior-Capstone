@@ -24,6 +24,9 @@ public class PlayerInputHandler : MonoBehaviour
 
     // private float dashInputStartTime;
 
+    /// <summary>
+    /// Called at initialization.
+    /// </summary>
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -32,6 +35,10 @@ public class PlayerInputHandler : MonoBehaviour
         cam = Camera.main;
     }
 
+    /// <summary>
+    /// Defines values of movement input.
+    /// </summary>
+    /// <param name="context">Retrieved Unity Event input.</param>
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -39,6 +46,10 @@ public class PlayerInputHandler : MonoBehaviour
         NormInputY = Mathf.RoundToInt(RawMovementInput.y);
     }
 
+    /// <summary>
+    /// Defines values of primary attack input.
+    /// </summary>
+    /// <param name="context">Retrieved Unity Event input.</param>
     public void OnPrimaryAttackInput(InputAction.CallbackContext context)
     {
         if(context.started)
@@ -52,6 +63,10 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Defines values of secondary attack input.
+    /// </summary>
+    /// <param name="context">Retrieved Unity Event input.</param>
     public void OnSecondaryAttackInput(InputAction.CallbackContext context)
     {
         
@@ -66,38 +81,34 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Defines values of aim input.
+    /// </summary>
+    /// <param name="context">Retrieved Unity Event input.</param>
     public void OnAimInput(InputAction.CallbackContext context)
     {
         RawLookInput = context.ReadValue<Vector2>();
         NormLookInput = new Vector2(Mathf.RoundToInt(RawLookInput.x), Mathf.RoundToInt(RawLookInput.y));
     }
 
+    /// <summary>
+    /// Defines values of pause input.
+    /// </summary>
+    /// <param name="context">Retrieved Unity Event input.</param>
     public void OnPauseInput(InputAction.CallbackContext context)
     {
         Paused = !Paused;
         Debug.Log("Paused: " + Paused);
     }
 
+    /// <summary>
+    /// Identifies what control scheme the player is using and returns true or false.
+    /// </summary>
+    /// <returns>True for gamepad, false for mouse and keyboard.</returns>
     public bool ControlScheme()
     {
         return playerInput.currentControlScheme.Equals("Gamepad");
     }
-
-    // public void OnDashInput(InputAction.CallbackContext context)
-    // {
-    //     if(context.started)
-    //     {
-    //         DashInput = true;
-    //         DashInputStop = false;
-    //         dashInputStartTime = Time.time;
-    //     }
-    //     else if(context.canceled)
-    //     {
-    //         DashInputStop = true;
-    //     }
-    // }
-
-    // public void UseDashInput() => DashInput = false;
 }
 
 public enum CombatInputs

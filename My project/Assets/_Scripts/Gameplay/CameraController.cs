@@ -9,11 +9,17 @@ using UnityEngine;
     {
         private GameObject player;
 
+        /// <summary>
+        /// Called when initialized and active.
+        /// </summary>
         public void Start()
         {
             
         }
 
+        /// <summary>
+        /// Called at the end of each frame.
+        /// </summary>
         public void LateUpdate()
         {
             if (player == null)

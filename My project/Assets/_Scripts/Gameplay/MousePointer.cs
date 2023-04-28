@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to define the look and hot-spot of the cursor when using mouse and keyboard.
+/// </summary>
 public class MousePointer : MonoBehaviour
 {
     [SerializeField]
