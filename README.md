@@ -2,6 +2,7 @@
 ### Repository for my CST-451 Senior Capstone project files and information.
 
 <hr/>
+
 ## Introduction
 
 ### The idea:
